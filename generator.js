@@ -43,112 +43,75 @@ function startGenerator() {
     generateCup();
     generateSkin();
     saveWives();
-    generateSexy();
-    generateSex();
 }
 
 function generateCup() {
-    randomData("cupsize", Cupsize_data);
+    randomData("cupsize",Cupsize_data);
 }
 
 function generateSkin() {
-    randomData("skin", Skin_data);
+    randomData("skin",Skin_data);
 }
-function generateSex() {
-    randomData("sex", Sex_data);
-}
-function generateSexy() {
-    getRandomPlus("sexy", Sexy_data);
-}
-
-function getRandomPlus(elementId, dataName) {
-    var shuffled = dataName.slice(0),
-        i=dataName.length,
-        mix=parseInt(Math.random()*(i),10),
-        min=i-mix,
-        temp,
-        index;
-    while (i-- > min) {
-        index = Math.floor((i + 1) * Math.random());
-        temp = shuffled[index];
-        shuffled[index] = shuffled[i];
-        shuffled[i] = temp;
-    }
-    var text1 = document.getElementById(elementId);
-    text1.innerHTML=shuffled.slice(min);
-}
-
-
-function randomData(elementId, dataName) {
-    var t1Num = Math.floor(Math.random() * dataName.length);
-    var text1 = document.getElementById(elementId);
-    text1.innerHTML = dataName[t1Num];
-}
-
 
 function generateBody() {
     var height = normalDistribution(165, 5)
     height = Math.round(height);
     var text1 = document.getElementById("height");
-    text1.innerHTML = height;
+    text1.innerHTML=height;
     var bmi = normalDistribution(20, 1);
-    var weight = Math.round(bmi * (height / 100) * (height / 100));
+    var weight = Math.round(bmi*(height/100)*(height/100));
     var text2 = document.getElementById("weight");
     text2.innerHTML = weight;
 }
-
 function generateAge() {
     var gH = Math.round(normalDistribution(20, 2));
     var text1 = document.getElementById("age");
-    text1.innerHTML = gH;
+    text1.innerHTML = gH;    
 }
-
 function generateHair() {
-    randomData("hairstyle", Hair_data);
+    randomData("hairstyle",Hair_data);
     var newColor = randomRGB();
     var text2 = document.getElementById("hairColor");
     text2.innerHTML = newColor;
     text2.style.backgroundColor = newColor;
 }
-
 function generateEyes() {
     var text1 = document.getElementById("eyeColor");
     var newColor = randomRGB();
     text1.innerHTML = newColor;
     text1.style.backgroundColor = newColor;
 }
-
 function generateAttribute() {
-    randomData("attribute", Attribute_data);
+    randomData("attribute",Attribute_data);
 }
-
-function generateCharacter() {
-    randomData("character", Character_data);
+function generateCharacter() {  
+    randomData("character",Character_data);
 }
 
 function normalDistribution(u, v) {
     // Box-Muller
     var x1 = Math.random();
     var x2 = Math.random();
-    var nD = Math.sqrt(-2 * Math.log(x1)) * Math.sin(2 * PI * x2) * v + u;
+    var nD = Math.sqrt(-2*Math.log(x1))*Math.sin(2*PI*x2)*v+u;
     return nD;
 }
-
 function randomRGB() {
-    var rValue = Math.round(Math.random() * 255).toString(16);
-    var gValue = Math.round(Math.random() * 255).toString(16);
-    var bValue = Math.round(Math.random() * 255).toString(16);
-    if (rValue.length < 2)
+    var rValue = Math.round(Math.random()*255).toString(16);
+    var gValue = Math.round(Math.random()*255).toString(16);
+    var bValue = Math.round(Math.random()*255).toString(16);
+    if(rValue.length <2)
         rValue = "0" + rValue;
-    if (gValue.length < 2)
+    if(gValue.length <2)
         gValue = "0" + gValue;
-    if (bValue.length < 2)
-        bValue = "0" + bValue;
-    return "#" + rValue + gValue + bValue;
+    if(bValue.length <2)
+        bValue = "0" + bValue;                
+    return "#"+rValue+gValue+bValue;
 }
-
-
-
+function randomData(elementId,dataName) {
+    var t1Num = Math.floor(Math.random()*dataName.length);
+    var text1 = document.getElementById(elementId);
+    text1.innerHTML = dataName[t1Num];    
+}
 function getCurrentWife() {
     let wifeTable = document.getElementById("wifeTable");
     let rows = wifeTable.rows;
@@ -159,9 +122,8 @@ function getCurrentWife() {
     }
     return wife;
 }
-
 function insertExWife() {
-    if (wifeCounter) {
+    if(wifeCounter) {
         let exWife = getCurrentWife();
         insertExWifeToTable(exWife);
     }
@@ -170,14 +132,13 @@ function insertExWife() {
         updateCounterText();
     }
 }
-
 function insertExWifeToTable(exWife) {
     let exWivesTable = document.getElementById("exWivesTable");
     let row = exWivesTable.insertRow(1);
     let propertyCount = wifeProps.length;
 
-
-    wifeProps.forEach((prop, i) => {
+    
+    wifeProps.forEach((prop,i) => {
         let cell = row.insertCell(i);
         cell.innerHTML = exWife[prop];
         if (exWife[prop].match(/#[\da-f]{6}/)) {
@@ -187,12 +148,10 @@ function insertExWifeToTable(exWife) {
     wifeCounter++;
     updateCounterText();
 }
-
 function updateCounterText() {
     let t = document.getElementById("wifeTable");
     t.caption.innerHTML = t.caption.innerHTML.replace(/\d+/, wifeCounter);
 }
-
 function saveWives() {
     if (!storage) {
         return;
@@ -212,7 +171,6 @@ function saveWives() {
     let currWife = getCurrentWife();
     storage.setItem("currWife", JSON.stringify(currWife));
 }
-
 function retriveWives() {
     if (!storage) {
         return;
@@ -231,7 +189,6 @@ function retriveWives() {
         updateCounterText();
     }
 }
-
 function setCurrWife(currWife) {
     let table = $("#wifeTable")[0];
     wifeProps.forEach((prop, i) => {
@@ -242,7 +199,6 @@ function setCurrWife(currWife) {
         }
     });
 }
-
 function onKillWivesPressed() {
     if (wifeCounter) {
         if (confirm("你确定要清除所有老婆吗？")) {
@@ -252,7 +208,6 @@ function onKillWivesPressed() {
         alert("醒醒，你还没有老婆");
     }
 }
-
 function killAllWives() {
     storage.clear();
     let exWivesTable = $("#exWivesTable")[0];
