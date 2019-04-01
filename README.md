@@ -1,5 +1,5 @@
 # 老婆生成器和谐版Random waifu generator sexy
-[网址](https://sleverbaka.github.io/Random-waifu-generater-sexy/) 
+[网址](https://sleverbaka.github.io/Random-waifu-generater/) 
 
 鸣谢
 
@@ -7,7 +7,7 @@
 
 增加了一个随机算法以实现多种标签添加
 
-增加了个人癖好
+
 
 初次尝试，请多包涵
 
