@@ -12,17 +12,17 @@
 
     <!-- 优化一下移动端展示效果 -->
     <!-- https://www.bootstrapcdn.com/ -->
-    <link rel="stylesheet" href="plugins/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="plugins/bootstrap/4.1.3/css/bootstrap.min.css"/>
 
 </head>
 
 <body class="container">
-    <h1 style="margin:30px 0px 10px 0px;">老婆生成器v0.2LTS</h1>
-    <div class="form-group" style="text-align:right;">
-        <a href="https://adnmb.com/t/15788691">讨论地址</a>
-        <a href="https://github.com/reed-chan/Random-waifu-generater">Source</a>
-    </div>
-    <div class="table-responsive">
+<h1 style="margin:30px 0px 10px 0px;">老婆生成器v0.2LTS</h1>
+<div class="form-group" style="text-align:right;">
+    <a href="https://adnmb.com/t/15788691">讨论地址</a>
+    <a href="https://github.com/reed-chan/Random-waifu-generater">Source</a>
+</div>
+<div class="table-responsive">
     <table id="wifeTable" class="table table-hover">
         <caption style="word-break:keep-all">你的第0个老婆</caption>
         <tr>
@@ -65,24 +65,34 @@
             <td id="characterText">性格</td>
             <td id="character">--</td>
         </tr>
+        <tr>
+            <td id="sexyText">变态性癖</td>
+            <td id="sexy">--</td>
+        </tr>
+        <tr>
+            <td id="sexText">性癖</td>
+            <td id="sex">--</td>
+        </tr>
+
 
     </table>
-    
+
     <div class="form-group" style="text-align:center;">
         <button type="button" onclick="startGenerator()" class="btn btn-primary btn-lg">一键生成老婆</button>
-        <button id="removeWivesBtn" type="button" onclick="onKillWivesPressed()" class="btn btn-primary btn-lg">清除所有老婆</button>
+        <button id="removeWivesBtn" type="button" onclick="onKillWivesPressed()" class="btn btn-primary btn-lg">清除所有老婆
+        </button>
     </div>
     <div id="exWives">
-		<h2>前妻列表</h2>
-		<table id="exWivesTable" class="table table-hover exWivesTable"></table>
+        <h2>前妻列表</h2>
+        <table id="exWivesTable" class="table table-hover exWivesTable"></table>
     </div>
-    </div>
+</div>
 </body>
 
 <style>
-	#wifeTable tr > td {
-		width: 50%;
-	}
+    #wifeTable tr > td {
+        width: 50%;
+    }
 </style>
 
 </html>
