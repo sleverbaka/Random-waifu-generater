@@ -1,7 +1,14 @@
-# 老婆生成器Random waifu generator 
-[网址](https://reed-chan.github.io/Random-waifu-generater/) 
+# 老婆生成器和谐版Random waifu generator sexy
+[网址](https://sleverbaka.github.io/Random-waifu-generater-sexy/) 
 
-一键生成老婆 施工中
+鸣谢
 
-repository name里的英文都打错了，真jier丢人  
-但是不想改
+基于 [reed-chanの老婆生成器](https://github.com/reed-chan/Random-waifu-generater) 制作
+
+增加了一个随机算法以实现多种标签添加
+
+增加了个人癖好
+
+初次尝试，请多包涵
+
+
