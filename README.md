@@ -3,12 +3,14 @@
 
 鸣谢
 
-基于 [reed-chanの老婆生成器](https://github.com/reed-chan/Random-waifu-generater) 制作
+基于 [reed-chanの老婆生成器](https://github.com/reed-chan/Random-waifu-generater) 修改
 
-增加了一个随机算法以实现多种标签添加
+增加了随便数量标签添加
 
-你们好
+增加了一些和谐内容
 
 初次尝试，请多包涵
+
+随时会鸽
 
 
