@@ -41,16 +41,46 @@ function startGenerator() {
     generateAttribute();
     generateCharacter();
     generateCup();
-    generateSkin();
-    saveWives();
+    generateSexy();
+    generateSex();
 }
 
 function generateCup() {
-    randomData("cupsize",Cupsize_data);
+    randomData("cupsize", Cupsize_data);
 }
 
 function generateSkin() {
-    randomData("skin",Skin_data);
+    randomData("skin", Skin_data);
+}
+function generateSex() {
+    randomData("sex", Sex_data);
+}
+function generateSexy() {
+    getRandomPlus("sexy", Sexy_data);
+}
+
+function getRandomPlus(elementId, dataName) {
+    var shuffled = dataName.slice(0),
+        i=dataName.length,
+        mix=parseInt(Math.random()*(i),10),
+        min=i-mix,
+        temp,
+        index;
+    while (i-- > min) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    var text1 = document.getElementById(elementId);
+    text1.innerHTML=shuffled.slice(min);
+}
+
+
+function randomData(elementId, dataName) {
+    var t1Num = Math.floor(Math.random() * dataName.length);
+    var text1 = document.getElementById(elementId);
+    text1.innerHTML = dataName[t1Num];
 }
 
 function generateBody() {
